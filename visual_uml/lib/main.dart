@@ -38,16 +38,22 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Column(
-        children: [
-
-          OverflowBar(
-            children: <Widget> [
-              ElevatedButton(onPressed: () {}, child: Text('Box'),),
-              ElevatedButton(onPressed: () {}, child: Text('Line'),),
-            ],
-          ),
-        ],
+      body: Center(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: OverflowBar(
+                children: <Widget> [
+                  ElevatedButton(onPressed: () {}, child: Text('Box'),),
+                  const SizedBox(width: 10),
+                  ElevatedButton(onPressed: () {}, child: Text('Line'),),
+                  const SizedBox(width: 10),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
