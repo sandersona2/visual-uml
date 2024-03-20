@@ -30,9 +30,28 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  List<Widget> a = [
+      Container(
+        height: 200,
+        child: Text('test'),
+      ),
+    ];
+
+  void _d() {
+    setState(() {
+      a.add(Container(
+              height: 200,
+              child: Text('test'),
+            ),
+      );
+    });
+  }
+
+  
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -41,15 +60,17 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           children: [
+            TextButton(
+              onPressed: () {
+                _d();
+              },
+              child: Text('Press here to add item')
+            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: OverflowBar(
-                children: <Widget> [
-                  ElevatedButton(onPressed: () {}, child: Text('Box'),),
-                  const SizedBox(width: 10),
-                  ElevatedButton(onPressed: () {}, child: Text('Line'),),
-                  const SizedBox(width: 10),
-                ],
+                
+                children: a,
               ),
             ),
           ],
